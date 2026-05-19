@@ -1,25 +1,28 @@
-# ArcticControl v3.3 🧊🚗
+# Arctic Control v3.5 PRO
 
-High-performance automotive heating management system designed for extreme winter conditions (tested in Novosibirsk, -35°C). Powered by Seeed Studio XIAO ESP32-C3.
+Arctic Control is an intelligent automotive thermal management system designed to handle sub-zero temperatures (tested at -35°C in Novosibirsk).
 
-## 🚀 Key Features
-- *Smart Carousel Logic*: Rotates 3 heating zones every 5 minutes to prevent battery drain.
-- *Adaptive Temperature Levels*:
-  - *Lvl 1 (-5°C)*: 1 zone active (33% duty cycle).
-  - *Lvl 2 (-15°C)*: 2 zones active (66% duty cycle).
-  - *Lvl 3 (-25°C)*: 3 zones active (100% duty cycle).
-- *Captive Portal UI*: Automatic dashboard pop-up on connection.
-- *Extreme Range*: Optimized for external antenna with +20dBm TX power.
-- *Secure Ecosystem*: WPA2 protected Wi-Fi network (DEV-NET).
+## Features
+- **Triple 12V Line Control**: All 3 relays manage 12V high-current zones.
+- **Smart Battery Protection**: Carousel logic ensures only one zone is active at a time to prevent battery depletion.
+- **Adaptive Auto-Modes**:
+  - **Lvl 1 (-5°C)**: Zone 1 active, 10-min battery recovery intervals.
+  - **Lvl 2 (-15°C)**: Zone 1 & 2 in rotation, 5-min intervals.
+  - **Lvl 3 (-25°C)**: Constant rotation of all 3 zones.
+- **External Antenna Support**: Configured for maximum TX Power (+20dBm).
+- **Secure Ecosystem**: WPA2 Protected DEV-NET with Captive Portal.
 
-## 🛠 Hardware Required
-- *Controller*: Seeed Studio XIAO ESP32-C3.
-- *Sensor*: DS18B20 (Waterproof version).
-- *Relays*: 3-Channel 3.3V Relay Module.
-- *Power*: DC-DC Step-down (12V to 5V).
-- *Antenna*: 2.4GHz External Antenna.
+## Installation
+### Linux (Arch/Debian)
+1. Run `./install.sh`
+2. Follow instructions to set password.
 
-## 💻 Installation (Arch Linux)
-1. *Connect XIAO* to your USB port.
-2. *Install tools*:
-   
+### Windows
+1. Install Python from `python.org`.
+2. Run: `pip install mpremote`
+3. Edit `main.py`: Replace `REPLACE_WIFI_PASS` with your password.
+4. Run: `mpremote cp main.py :main.py`
+5. Run: `mpremote reset`
+
+## License
+MIT License.
